@@ -108,7 +108,7 @@
 								switchOnCell(4);
 								switchOffCell(5);
                             }else if(crackTime.indexOf("centuries") !=-1){
-                                this.info = 'Very Strong - password would take'+ crackTime +' to crack';
+                                this.info = 'Very Strong - password would take '+ crackTime +' to crack';
 								switchOnCell(0);
 								switchOnCell(1);
 								switchOnCell(2);

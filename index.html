@@ -1,0 +1,208 @@
+
+<html>
+<head>
+
+<!-- load Google web font (Lato) -->
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+
+<title>Fonterra Security Password Checker</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="zxcvbn.js"></script>
+<script type="text/javascript" src="jquery.password.strength.js"></script>
+<script type="text/javascript" >
+
+// javascript function to allow password input box to be on focus
+
+	function FocusOnInput() {
+	document.getElementById("pass").focus();
+	}
+
+
+	function switchOffCell(number) {
+		var cell = document.getElementById('s' + number);
+		cell.className = 'cell';
+	}
+
+	function switchOnCell(number) {
+		var cell = document.getElementById('s' + number);
+		cell.className = 'cell on';
+	}
+
+
+	function switchOffAllCells() {
+				switchOffCell(0);
+				switchOffCell(1);
+				switchOffCell(2);
+				switchOffCell(3);
+				switchOffCell(4);
+				switchOffCell(5);
+			}
+
+	
+
+	$(function() {
+		$("#pass").keyup(function(){
+			initializeStrengthMeter();
+		});
+
+		
+	});
+	
+	
+
+	function initializeStrengthMeter(){
+		$("#pass_meter").PasswordStrengthManager({
+			password: $("#pass").val(),
+			blackList : ["fonterra", "newzealand", "Fonterra", "NewZealand"], 
+			minChars : '1',
+			maxChars : '30',
+			advancedStrength : true
+		});
+	}
+
+</script>
+
+<style>
+#password_strength_panel{
+	background: #3498db repeat scroll 0 0;
+    	margin: auto auto;
+    	text-align: center;
+   	width: 768px;
+}
+
+#pass_meter{
+	background: #2980b9 no-repeat 0 0;
+	color: white;
+	height: 40px;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	font-weight: normal;
+	padding: 20px;
+}
+
+#bar {
+	background: none repeat scroll 0 0 #95a5a6;
+	color: #95a5a6;
+	height: 10px;
+	padding: 0px;
+	margin: auto;
+	width: 93%;
+	text-align: center;
+	font-weight: bold;
+}
+
+
+.cell {
+	width: 16%;
+	border: solid #ffffff 2px;
+	display: block;
+	float: left;
+	min-height: 20px;
+	background-color: #ffffff;
+	margin : 0;
+}
+
+#s0.on {
+  background-color: #c0392b;
+}
+
+#s1.on {
+  background-color: #e74c3c;
+}
+
+#s2.on {
+  background-color: #d35400;
+}
+
+#s3.on {
+  background-color: #f39c12;
+}
+
+#s4.on {
+  background-color: #f1c40f;
+}
+
+#s5.on {
+  background-color: #2ecc71;
+}
+
+
+
+h2{
+	font-family: Lato;
+	font-size: 40px;
+    padding: 20px;
+	color: white;
+	text-align: center;
+}
+
+
+h6{
+	font-family: Lato;
+	font-size: 12px;
+    padding: 0px;
+	color: white;
+}
+
+
+ul li{
+	text-align: center;
+	list-style: none;
+	padding: 10px;
+	margin: auto;
+	font-family: Lato;
+	font-size: 14px;
+	width: 89%;
+	
+}
+
+
+</style>
+
+
+</head>
+
+<body onLoad="FocusOnInput()">
+
+<div id='password_strength_panel'>
+<h2>Fonterra Password Strength Checker</h2>
+
+
+<ul>
+
+<!-- this is the password input box -->
+	<li> <input style='height:50px;font-family:Lato;font-size:30px;text-align:center;margin:auto;width:100%;' id='pass' type='text' size='53px'/> </li>
+	
+<li> <div id='pass_meter'> </div> 
+</li>
+
+ <li> <div id="bar">
+      <span id="s0" class="cell"></span>
+      <span id="s1" class="cell"></span>
+      <span id="s2" class="cell"></span>
+      <span id="s3" class="cell"></span>
+      <span id="s4" class="cell"></span>
+      <span id="s5" class="cell"></span>
+    </div> 
+ </li>
+	
+<!-- reassure users that their password is not stored anywhere --> 
+	<li> <div id''safetyMessage'> 
+	<h6>No data is stored as a result of this check</h6>
+	</li>
+	
+
+
+</ul>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+

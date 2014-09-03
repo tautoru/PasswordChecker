@@ -47,7 +47,7 @@
             if('' == this.settings.password){
 				
 				switchOffAllCells();
-                this.info = 'Password field cannot be empty';
+                this.info = 'Please type a pass phrase or password';
 				
             }
 

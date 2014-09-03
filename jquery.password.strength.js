@@ -65,7 +65,7 @@
 						switchOffCell(3);
 						switchOffCell(4);
 						switchOffCell(5);
-                        this.info = 'Unacceptable password quality';
+                        this.info = 'Unacceptable password quality - hackers can guess this easily';
                         break;
                     case 1:
 						switchOnCell(0);
@@ -92,7 +92,7 @@
 						switchOnCell(3);
 						switchOffCell(4);
 						switchOffCell(5);
-                        this.info = 'Compliant - password is adequate but consider making it stronger';
+                        this.info = 'Almost there - password is getting stronger...';
                         break;
                     case 4:
 
